@@ -1,0 +1,42 @@
+var commonCharacters = function (...param) {
+  // TODO: Your code here!
+   let newChars="";
+   let string1=param[0];
+   if(param.length>2){
+       let arrayStr=param.toString();
+       let multiChar='';
+       arrayStr.split('').forEach((char)=>{
+             let count=0;
+            param.forEach((arg)=>{
+                 if(arg.includes(char)){
+                     ++count;
+                 }
+            });
+            if(count==param.length){
+                multiChar=char;
+            }
+       });
+       if(multiChar!==''){
+           return multiChar;
+       }
+    }
+   for(let s1Char of string1){
+       if(s1Char==" "){
+          continue;
+       }else{
+           param.forEach((string2,index)=>{
+               if(index>0){
+                   if(string2.includes(s1Char)&& !newChars.includes(s1Char)){
+                       newChars+=s1Char;
+                    }
+                }
+                
+            });
+              
+        }
+    }
+         
+      
+   return newChars;
+   
+};
